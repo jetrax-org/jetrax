@@ -1,0 +1,33 @@
+$timerPadding: 0.6rem;
+$mainButtonPadding: 0.4rem;
+
+button {
+  transition: background-color 0.4s;
+  background-color: #36395a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: padding 0.3s;
+  padding: $mainButtonPadding;
+  &:hover {
+    transition: background-color 0.4s;
+    background-color: #b6b7d5;
+    color: white;
+    transition: padding 0.3s;
+    padding: $timerPadding;
+  }
+}
+:global(body.dark-mode) button {
+  transition: background-color 0.4s;
+  background-color: #b6b7d5;
+  color: white;
+  transition: padding 0.3s;
+  padding: $mainButtonPadding;
+  &:hover {
+    transition: background-color 0.4s;
+    background-color: #36395a;
+    color: white;
+    transition: padding 0.3s;
+    padding: $timerPadding;
+  }
+}

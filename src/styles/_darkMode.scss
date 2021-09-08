@@ -1,0 +1,14 @@
+@import "global.scss";
+
+:global(body) {
+  background-color: #222436;
+  color: #0084f6;
+  transition: background-color 0.3s;
+}
+:global(body.dark-mode) {
+  background-color: #bfc2c7;
+  color: #d6d6e7;
+  ul#menu {
+    background-color: #d6d6e7;
+  }
+}
