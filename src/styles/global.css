@@ -5,6 +5,57 @@ main {
   margin: 0 auto;
 }
 
+input {
+  color: #24232a;
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 28px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  -webkit-box-shadow: black 0px, 1px, 3px, black 0px, 1px, 2px;
+          box-shadow: black 0px, 1px, 3px, black 0px, 1px, 2px;
+  background: #fbfbfb;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
+
+input:focus {
+  border: 1px solid #7c8aff;
+}
+
+button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 0 16px;
+  border-radius: 4px;
+  color: #fff;
+  background: #6200ee;
+  line-height: 1.15;
+  font-size: 14px;
+  height: 41px;
+  word-spacing: 0px;
+  letter-spacing: 0.0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 64px;
+  border: none;
+  text-align: center;
+  -webkit-transition: min-width 10s;
+  transition: min-width 10s;
+}
+
+button:hover {
+  background: #3200ee;
+}
+
+button:focus {
+  background: #2000ee;
+}
+
 h1 {
   color: black;
   text-transform: uppercase;

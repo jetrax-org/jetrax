@@ -17,6 +17,7 @@ button {
     padding: $timerPadding;
   }
 }
+
 :global(body.dark-mode) button {
   transition: background-color 0.4s;
   background-color: #b6b7d5;

@@ -5,6 +5,49 @@ main {
   margin: 0 auto;
 }
 
+input {
+  color: rgb(36, 35, 42);
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 28px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  box-shadow: rgb(0, 0, 0 / 12%) 0px, 1px, 3px, rgb(0, 0, 0 / 24%) 0px, 1px, 2px;
+  background: rgb(251, 251, 251);
+  transition: all 0.1s ease 0s;
+  &:focus {
+    border: 1px solid rgb(124, 138, 255);
+  }
+}
+button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 0 16px;
+  border-radius: 4px;
+  color: #fff;
+  background: #6200ee;
+  line-height: 1.15;
+  font-size: 14px;
+  height: 41px;
+  word-spacing: 0px;
+  letter-spacing: 0.0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 64px;
+  border: none;
+  text-align: center;
+  transition: min-width 10s;
+  &:hover {
+    background: rgb(50, 0, 238);
+  }
+  &:focus {
+    background: rgb(32, 0, 238);
+  }
+}
 h1 {
   color: black;
   text-transform: uppercase;
