@@ -1,8 +1,13 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition";
 </script>
-<p class="message" transition:fade><slot/></p>
+
+<h3 class="message chatm" transition:fade><slot /></h3>
 
 <style lang="scss">
-
+  @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@600;900&display=swap");
+  h3 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 100;
+  }
 </style>

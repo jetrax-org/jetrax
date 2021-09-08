@@ -58,39 +58,35 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 
-  <li><Toggler>Toggle</Toggler></li>
+  <Toggler>Toggle</Toggler>
   <main>
-    <h1 class="animate__animated animate__tada">Hello!</h1>
-    <p>
-      Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-      how to build Svelte apps.
-    </p>
-
-    <section>
-      <div id="change_username">
-        <input id="username" type="text" bind:value={username} />
-        <button id="send_username" type="button" on:click={sendUsername}>
-          Change username
+    <div class="animate__animated animate__tada">
+      <section>
+        <div id="change_username">
+          <input id="username" type="text" bind:value={username} />
+          <button id="send_username" type="button" on:click={sendUsername}>
+            Change username
+          </button>
+        </div>
+      </section>
+      <section id="input_zone">
+        <input
+          id="message"
+          class="vertical-align"
+          type="text"
+          on:keypress={sendTyping}
+          bind:value={message}
+        />
+        <button
+          id="send_message"
+          class="vertical-align"
+          type="button"
+          on:click={sendMessage}
+        >
+          Send
         </button>
-      </div>
-    </section>
-    <section id="input_zone">
-      <input
-        id="message"
-        class="vertical-align"
-        type="text"
-        on:keypress={sendTyping}
-        bind:value={message}
-      />
-      <button
-        id="send_message"
-        class="vertical-align"
-        type="button"
-        on:click={sendMessage}
-      >
-        Send
-      </button>
-    </section>
+      </section>
+    </div>
     <section id="chatroom">
       {#each chatroom as c}
         <ChatMessage
