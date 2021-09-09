@@ -3,7 +3,7 @@
 /public/build/
 
 yarn.lock
-
+.eslintrc.json
 .vscode/
 yarn-error.log
 .DS_Store
