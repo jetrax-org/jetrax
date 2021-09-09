@@ -1,7 +1,9 @@
+# Node generrated files
 /node_modules/
 /public/build/
+
 yarn.lock
-# Test Commit
+
 .vscode/
 yarn-error.log
 .DS_Store
