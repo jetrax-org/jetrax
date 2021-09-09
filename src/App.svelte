@@ -4,7 +4,6 @@
   import { draw } from "svelte/transition";
   import Toggler from "./ViewMode.svelte";
   import ChatMessage from "./ChatMessages.svelte";
-  import { io } from "socket.io-client";
 
   // buttons and inputs
 
@@ -14,54 +13,73 @@
   let feedback: string;
 
   // make connection
-  var socket = io("http://localhost:3000");
   console.log("http://localhost:3000");
+  const socket = new WebSocket('ws://localhost:3000/socket');
+
+  // Connection opened
+  socket.addEventListener('open', function (event) {
+      socket.send('Hello Server!');
+  });
+
+  // Listen for messages
+  socket.addEventListener('message', function (event) {
+      const data: any = JSON.parse(event.data);
+
+      switch (data.type) {
+        case "typing":
+          feedback = data.username;
+          break;
+        case "message":
+          message = "";
+          feedback = "";
+          chatroom = [
+            ...chatroom,
+            { username: data.username, message: data.message },
+          ];
+          break;
+      }
+  });
 
   function sendMessage() {
-    socket.emit("new_message", { message });
+    socket.send(JSON.stringify({
+      type: "new_message",
+      username,
+      message,
+    }));
   }
-  // Listen on new_message
 
   // Emit a username
   function sendUsername() {
-    socket.emit("change_username", { username });
+    socket.send(JSON.stringify({
+      type: "change_username",
+      username,
+    }));
   }
 
   // Emit typing
   function sendTyping() {
-    socket.emit("typing");
+    socket.send(JSON.stringify({
+      type: "typing",
+      username,
+    }));
   }
-
-  // Listen on typing
-  socket.on("typing", (data) => {
-    feedback = data.username;
-  });
-  socket.on("new_message", (data) => {
-    message = "";
-    feedback = "";
-    chatroom = [
-      ...chatroom,
-      { username: data.username, message: data.message },
-    ];
-    // console.log(chatroom)
-  });
+ 
 </script>
 
 <title>Svelte chat app</title>
 
-<div class="animate__fadeIn ">
+<div class="animate__fadeIn">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 
   <Toggler>Toggle</Toggler>
-  <main>
+  
+  <chat class="chat">
     <div class="animate__animated animate__tada">
-      <section>
+      <section> 
         <div id="change_username">
           <input id="username" type="text" bind:value={username} />
           <button id="send_username" type="button" on:click={sendUsername}>
@@ -72,14 +90,12 @@
       <section id="input_zone">
         <input
           id="message"
-          class="vertical-align"
           type="text"
           on:keypress={sendTyping}
           bind:value={message}
         />
         <button
           id="send_message"
-          class="vertical-align"
           type="button"
           on:click={sendMessage}
         >
@@ -101,7 +117,7 @@
         {/if}
       </section>
     </section>
-  </main>
+  </chat>
 </div>
 
 <style lang="scss">

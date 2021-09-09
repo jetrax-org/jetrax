@@ -1,11 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap");
 
 main {
-  text-align: left;
+  text-align: center;
   padding: 1em;
-  padding-left: 30em;
   max-width: 240px;
   margin: 0 auto;
+}
+.chat {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 11px;
+  margin-left: 8px;
 }
 .sector {
   font-family: "Urbanist", sans-serif;
@@ -50,6 +58,8 @@ button {
   transition: min-width 10s;
   &:hover {
     background: rgb(50, 0, 238);
+    transition: letter-spacing 30ms;
+    letter-spacing: 0.15em;
   }
   &:focus {
     background: rgb(32, 0, 238);
