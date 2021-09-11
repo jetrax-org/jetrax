@@ -14,11 +14,10 @@
 
   // make connection
   console.log("http://localhost:3000");
-  const socket = new WebSocket('ws://localhost:3000/socket');
+  const socket = new WebSocket('ws://localhost:3000');
 
   // Connection opened
   socket.addEventListener('open', function (event) {
-      socket.send('Hello Server!');
   });
 
   // Listen for messages
